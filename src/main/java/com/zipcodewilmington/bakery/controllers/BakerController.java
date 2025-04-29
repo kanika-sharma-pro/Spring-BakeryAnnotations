@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class BakerController {
 
 
@@ -25,21 +25,23 @@ public class BakerController {
         return new ResponseEntity<>(service.index(), HttpStatus.OK);
     }
 @GetMapping(value = "/bakers/{id}")
-    public ResponseEntity<Baker> show(@PathVariable("id") Long id) {
+    public ResponseEntity<Baker> show(@PathVariable Long id) {
 
         return new ResponseEntity<>(service.show(id), HttpStatus.OK);
     }
+
 @PostMapping(value = "/bakers/")
     public ResponseEntity<Baker> create(@RequestBody Baker baker) {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
+
 @PutMapping(value = "/bakers/{id}")
-    public ResponseEntity<Baker> update(@PathVariable("id") Long id,@RequestBody Baker baker) {
+    public ResponseEntity<Baker> update(@PathVariable Long id,@RequestBody Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/bakers/{id}")
-    public ResponseEntity<Boolean> destroy(@PathVariable("id") Long id) {
+    public ResponseEntity<Boolean> destroy(@PathVariable Long id) {
 
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
     }
