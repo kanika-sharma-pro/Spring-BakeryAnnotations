@@ -29,7 +29,7 @@ public class BakerController {
 
         return new ResponseEntity<>(service.show(id), HttpStatus.OK);
     }
-@PostMapping(value = "/bakers")
+@PostMapping(value = "/bakers/")
     public ResponseEntity<Baker> create(@RequestBody Baker baker) {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
